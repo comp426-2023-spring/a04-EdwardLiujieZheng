@@ -13,3 +13,15 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+
+
+
+// Catch-all middleware for undefined routes
+app.use((req, res) => {
+    res.status(404).json({ message: 'Not Found: The requested endpoint does not exist.' });
+  });
+  
+  // Start the server
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
