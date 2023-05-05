@@ -4,7 +4,7 @@
   "description": "and api for rps game",
   "main": "server.js",
   "scripts": {
-    "test": ""
+    "test": "node server.js --port=5555"
   },
   "repository": {
     "type": "git",
