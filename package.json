@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node server.js --port=5555"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/comp426-2023-spring/a04-EdwardLiujieZheng.git"
