@@ -6,7 +6,8 @@ import { rps, rpsls } from './lib/rpsls.js';
 
 // parse argv
 const argv = minimist(process.argv.slice(2));
-console.log(argv);
+const port = argv.port ? argv.port : 5000;
+console.log(port)
 
 const app = express();
 
