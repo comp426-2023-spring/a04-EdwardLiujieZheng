@@ -14,7 +14,10 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 
-
+// Check endpoint at /app/ that returns 200 OK
+app.get('/app/', (req, res) => {
+    res.status(200).json({ message: 'OK: The endpoint is working correctly.' });
+  });
 
 // Catch-all middleware for undefined routes
 app.use((req, res) => {
