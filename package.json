@@ -1,0 +1,19 @@
+{
+  "name": "rps-api",
+  "version": "1.0.0",
+  "description": "and api for rps game",
+  "main": "server.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/comp426-2023-spring/a04-EdwardLiujieZheng.git"
+  },
+  "author": "Liujie Zheng",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2023-spring/a04-EdwardLiujieZheng/issues"
+  },
+  "homepage": "https://github.com/comp426-2023-spring/a04-EdwardLiujieZheng#readme"
+}
