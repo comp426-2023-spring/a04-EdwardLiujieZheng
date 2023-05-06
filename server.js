@@ -16,12 +16,17 @@ app.use(bodyParser.json());
 
 // Check endpoint at /app/ that returns 200 OK
 app.get('/app/', (req, res) => {
-    res.status(200).json({ message: '200 OK' });
+    res.status(200).send('200 OK');
   });
+
+// Check endpoint at /app/rps/
+app.get('/app/rps', (req, res) => {
+  res.status(200).send('200 OK');
+});
 
 // Catch-all middleware for undefined routes
 app.use((req, res) => {
-    res.status(404).json({message: "404 NOT FOUND"});
+    res.status(404).send("404 NOT FOUND");
   });
   
 // Start the server
