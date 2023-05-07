@@ -82,7 +82,7 @@ app.post('/app/rps/play/', (req, res) => {
 app.post('/app/rpsls/play/', (req, res) => {
   const playerChoice = req.body.shot || req.query.shot;
   try {
-    const result = play(playerChoice);
+    const result = rpsls(playerChoice);
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
