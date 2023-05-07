@@ -59,6 +59,13 @@ app.post('/app/rpsls/play/', (req, res) => {
   res.status(200).json(result);
 });
 
+// API route for playing the RPSLS game using a URL parameter
+app.get('/app/rps/play/:choice(rock|paper|scissors)/', (req, res) => {
+  const playerChoice = req.params.choice;
+  const result = rps(playerChoice);
+  res.status(200).json(result);
+});
+
 // Catch-all middleware for undefined routes
 app.use((req, res) => {
     res.status(404).send("404 NOT FOUND");
