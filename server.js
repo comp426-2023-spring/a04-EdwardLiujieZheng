@@ -92,15 +92,23 @@ app.post('/app/rpsls/play/', (req, res) => {
 // API route for playing the RPS game using a URL parameter
 app.get('/app/rps/play/:choice(rock|paper|scissors)/', (req, res) => {
   const playerChoice = req.params.choice;
-  const result = rps(playerChoice);
-  res.status(200).json(result);
+  try {
+    const result = rps(playerChoice);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
+  }
 });
 
 // API route for playing the RPSLS game using a URL parameter
 app.get('/app/rpsls/play/:choice(rock|paper|scissors|lizard|spock)/', (req, res) => {
   const playerChoice = req.params.choice;
-  const result = rpsls(playerChoice);
-  res.status(200).json(result);
+  try {
+    const result = rpsls(playerChoice);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
+  }
 });
 
 // Catch-all middleware for undefined routes
