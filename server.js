@@ -7,10 +7,8 @@ import { rps, rpsls } from './lib/rpsls.js';
 // parse argv
 const argv = minimist(process.argv.slice(2));
 const port = argv.port ? argv.port : 5000;
-console.log(port)
 
 const app = express();
-
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -36,8 +34,28 @@ app.get('/app/rpsls', (req, res) => {
 // API route for playing the RPS game
 app.get('/app/rps/play/', (req, res) => {
   const playerChoice = req.body.shot || req.query.shot;
-  console.log(playerChoice)
   const result = rps(playerChoice);
+  res.status(200).json(result);
+});
+
+// API route for playing the RPSLS game
+app.get('/app/rpsls/play/', (req, res) => {
+  const playerChoice = req.body.shot || req.query.shot;
+  const result = rpsls(playerChoice);
+  res.status(200).json(result);
+});
+
+// API route for playing the RPS game
+app.post('/app/rps/play/', (req, res) => {
+  const playerChoice = req.body.shot || req.query.shot;
+  const result = rps(playerChoice);
+  res.status(200).json(result);
+});
+
+// API route for playing the RPSLS game
+app.post('/app/rpsls/play/', (req, res) => {
+  const playerChoice = req.body.shot || req.query.shot;
+  const result = rpsls(playerChoice);
   res.status(200).json(result);
 });
 
