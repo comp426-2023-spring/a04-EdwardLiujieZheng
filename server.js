@@ -4,6 +4,12 @@ import bodyParser from 'body-parser';
 import minimist from 'minimist';
 import { rps, rpsls } from './lib/rpsls.js';
 
+// Validate imported functions
+if (typeof rps !== 'function' || typeof rpsls !== 'function') {
+  console.error('Error: rps and rpsls functions must be available from the lib/rpsls.js module.');
+  process.exit(1);
+}
+
 // parse argv
 const argv = minimist(process.argv.slice(2));
 const port = argv.port ? argv.port : 5000;
