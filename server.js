@@ -13,6 +13,8 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+
 
 // Check endpoint at /app/ that returns 200 OK
 app.get('/app/', (req, res) => {
@@ -28,6 +30,14 @@ app.get('/app/rps', (req, res) => {
 // Check endpoint at /app/rps/
 app.get('/app/rpsls', (req, res) => {
   const result = rpsls();
+  res.status(200).json(result);
+});
+
+// API route for playing the RPS game
+app.get('/app/rps/play/', (req, res) => {
+  const playerChoice = req.body.shot || req.query.shot;
+  console.log(playerChoice)
+  const result = rps(playerChoice);
   res.status(200).json(result);
 });
 
