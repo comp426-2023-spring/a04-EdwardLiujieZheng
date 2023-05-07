@@ -48,15 +48,23 @@ app.get('/app/rpsls/', (req, res) => {
 // API route for playing the RPS game
 app.get('/app/rps/play/', (req, res) => {
   const playerChoice = req.body.shot || req.query.shot;
-  const result = rps(playerChoice);
-  res.status(200).json(result);
+  try {
+    const result = rps(playerChoice);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
+  }
 });
 
 // API route for playing the RPSLS game
 app.get('/app/rpsls/play/', (req, res) => {
   const playerChoice = req.body.shot || req.query.shot;
-  const result = rpsls(playerChoice);
-  res.status(200).json(result);
+  try {
+    const result = rpsls(playerChoice);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
+  }
 });
 
 // API route for playing the RPS game
