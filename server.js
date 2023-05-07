@@ -20,8 +20,14 @@ app.get('/app/', (req, res) => {
   });
 
 // Check endpoint at /app/rps/
-app.get('/app/rps/', (req, res) => {
+app.get('/app/rps', (req, res) => {
   const result = rps();
+  res.status(200).json(result);
+});
+
+// Check endpoint at /app/rps/
+app.get('/app/rpsls', (req, res) => {
+  const result = rpsls();
   res.status(200).json(result);
 });
 
