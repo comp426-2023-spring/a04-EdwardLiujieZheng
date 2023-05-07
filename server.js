@@ -27,9 +27,8 @@ app.get('/app/', (req, res) => {
 
 // Check endpoint at /app/rps/
 app.get('/app/rps/', (req, res) => {
-  const result = rps();
   try {
-    const result = rps(playerChoice);
+    const result = rps();
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
@@ -38,9 +37,8 @@ app.get('/app/rps/', (req, res) => {
 
 // Check endpoint at /app/rps/
 app.get('/app/rpsls/', (req, res) => {
-  const result = rpsls();
   try {
-    const result = rpsls(playerChoice);
+    const result = rpsls();
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
