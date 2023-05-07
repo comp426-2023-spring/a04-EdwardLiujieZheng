@@ -20,13 +20,9 @@ app.get('/app/', (req, res) => {
   });
 
 // Check endpoint at /app/rps/
-app.get('/app/rps', (req, res) => {
-  try {
-    const result = rps(playerChoice);
-    res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json({ message: 'Internal Server Error: Something went wrong while processing your request.' });
-  }
+app.get('/app/rps/', (req, res) => {
+  const result = rps();
+  res.status(200).json(result);
 });
 
 // Catch-all middleware for undefined routes
